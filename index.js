@@ -16,6 +16,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/v1/user', userRoutes);
 
 app.listen(PORT, () => {
-    console.log("Listening for requests !");
+    console.log(`Listening for requests ar port - ${PORT} !`);
     connectDb();
 });

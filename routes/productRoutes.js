@@ -10,4 +10,6 @@ Router.post('/create', isAuthenticated, isSeller, productController.postCreate);
 
 Router.get('/get/all'.productController.getAll);
 
+Router.post('/buy/:productID', productController.postBuyer);
+
 module.exports = Router;

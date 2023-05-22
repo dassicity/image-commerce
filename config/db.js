@@ -1,6 +1,6 @@
-const { sequelize } = require('sequelize');
+const { Sequelize } = require('sequelize');
 
-const createDb = new sequelize('image-db', 'dassicity', 'password', {
+const createDb = new Sequelize('image-db', 'dassicity', 'password', {
     dialect: 'sqlite',
     host: './config/db.sqlite'
 });

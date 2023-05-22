@@ -4,7 +4,7 @@ const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-exports.postSignup = async (req, res, next) => {
+exports.postSignUp = async (req, res, next) => {
     try {
 
         const { name, email, password, isSeller } = req.body;
@@ -49,7 +49,7 @@ exports.postSignup = async (req, res, next) => {
 
 };
 
-exports.postSignin = async (req, res, next) => {
+exports.postSignIn = async (req, res, next) => {
     try {
         const { email, password } = req.body;
 
@@ -92,3 +92,13 @@ exports.postSignin = async (req, res, next) => {
         return res.status(500).send(e);
     }
 };
+
+exports.getSignOut = async (req, res, next) => {
+    try {
+        res.clearCookie('tokenSign');
+        return res.status(200).json({ message: "Cookie deleted!" })
+    }
+    catch (e) {
+        return res.status(400).send(e);
+    }
+}

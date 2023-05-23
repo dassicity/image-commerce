@@ -25,7 +25,7 @@ const isAuthenticated = async (req, res, next) => {
             return res.status(404).json({ err: "user not found!" })
         }
 
-        req.user = user;
+        req.user = user.dataValues;
         next();
     }
     catch (e) {

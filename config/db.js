@@ -15,4 +15,11 @@ const connectDb = () => {
         });
 }
 
+const userModel = require("../models/userModel");
+const orderModel = require("../models/orderModel");
+
+// Association to link userModel to orderModel
+orderModel.belongsTo(userModel, { foreignKey: "buyerID" });
+userModel.hasMany(orderModel, { foreignKey: "id" });
+
 module.exports = { createDb, connectDb };

@@ -44,3 +44,18 @@ exports.getAll = async (req, res, next) => {
         return res.status(500).json({ err: err.message });
     }
 }
+
+exports.postBuyer = async (req, res, next) => {
+    try {
+        const product = await Product.finfOne({
+            where: { id: req.params.productID }
+        });
+
+        if (!product) {
+            return res.status(404).json({ err: "No error found!" });
+        }
+    }
+    catch (e) {
+        return res.status(500).json({ err: err.message });
+    }
+};

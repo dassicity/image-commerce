@@ -11,10 +11,10 @@ const Order = createDb.define("orders", {
         allowNull: false
     },
     productID: DataTypes.INTEGER,
-    productName: DataTypes.STRING,
-    productPrice: DataTypes.DECIMAL,
+    // productName: DataTypes.STRING,
+    // productPrice: DataTypes.DECIMAL,
     buyerID: DataTypes.INTEGER,
-    buyerEmail: DataTypes.STRING,
+    // buyerEmail: DataTypes.STRING,
 
 });
 

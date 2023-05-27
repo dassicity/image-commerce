@@ -9,7 +9,7 @@ const Router = express.Router();
 
 Router.post('/create', isAuthenticated, isSeller, productController.postCreate);
 
-Router.get('/get/all'.isAuthenticated, productController.getAll);
+Router.get('/get/all', isAuthenticated, productController.getAll);
 
 Router.post('/buy/:productID', isAuthenticated, isBuyer, productController.postBuyer);
 

@@ -8,7 +8,7 @@ const stripe = require('stripe')(stripeKey);
 const { WebhookClient } = require('discord.js');
 
 const webHook = new WebhookClient({
-    url: "https://discord.com/api/webhooks/1112029550445084774/p9fEwLPPSMH-fRhrnwXw3KK0wvoUIQiBzQ1oddAzkIFi34hUOU-wleYvF_xzWS6c4gBr"
+    url: process.env.DISCORD_URL
 });
 
 exports.postCreate = async (req, res, next) => {
@@ -58,16 +58,18 @@ exports.getAll = async (req, res, next) => {
 
 exports.postBuyer = async (req, res, next) => {
     try {
-        const product = await Product.finfOne({
+        const productFind = await Product.finfOne({
             where: { id: req.params.productID }
-        })?.dataValues;
+        });
+
+        const product = productFind.datavalues;
 
         if (!product) {
             return res.status(404).json({ err: "No product found!" });
         }
 
         const orderDetails = {
-            productID,
+            productID: req.params.productID,
             buyerID: req.user.id
         }
 

@@ -1,10 +1,11 @@
 const exp = require('constants');
 const express = require('express');
+require('dotenv').config();
 
 const { connectDb } = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes')
-const PORT = 1339;
+const PORT = process.env.PORT;
 
 const app = express();
 
